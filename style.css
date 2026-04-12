@@ -34,3 +34,21 @@ nav a:hover {
   padding-bottom: 0.1em;
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
+
+input, textarea, button {
+  font: inherit;
+}
+
+input, textarea, button, label {
+  display: block;
+}
+
+input, textarea, button {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+label {
+  margin-block: 1rem;
+}
