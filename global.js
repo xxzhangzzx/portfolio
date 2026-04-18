@@ -26,11 +26,17 @@ for (let p of pages) {
 
   url = !url.startsWith("http") ? BASE_PATH + url : url;
 
-  let html = url.startsWith("http")
-    ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>`
-    : `<a href="${url}">${title}</a>`;
+  let a = document.createElement("a");
+  a.href = url;
+  a.textContent = title;
 
-  nav.insertAdjacentHTML("beforeend", html);
+  if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add("current");
+  }
+
+  if (a.host !== location.host) {
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
 }
 
 let navLinks = $$("nav a");
