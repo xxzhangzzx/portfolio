@@ -57,8 +57,20 @@ document.body.insertAdjacentHTML(
 );
 
 let select = document.querySelector(".color-scheme select");
-select.value = "light dark";
+
+function setColorScheme(colorScheme) {
+    document.documentElement.style.setProperty("color-scheme", colorScheme);
+    select.value = colorScheme;
+}
+
+if ("colorScheme" in localStorage) {
+    setColorScheme(localStorage.colorScheme);
+} else {
+    setColorScheme("light dark");
+}
 
 select.addEventListener("input", function (event) {
-    document.documentElement.style.setProperty("color-scheme", event.target.value);
+    let colorScheme = event.target.value;
+    setColorScheme(colorScheme);
+    localStorage.colorScheme = colorScheme;
 });
