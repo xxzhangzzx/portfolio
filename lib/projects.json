@@ -55,19 +55,19 @@
     },
     {
         "title": "Sailboat",
-        "year": "2016"
+        "year": "2016",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "First time to learn sailing."
     },
     {
         "title": "Sneaker reselling",
-        "year": "2019"
+        "year": "2019",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "My first business - sneaker reselling during highschool."
     },
     {
         "title": "Study tour",
-        "year": "2017"
+        "year": "2017",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Had a study tour in United Kingdom."
     }
