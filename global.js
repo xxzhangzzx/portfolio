@@ -1,5 +1,21 @@
 console.log('IT’S ALIVE!');
 
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
 function $$(selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
 }
@@ -91,3 +107,35 @@ form?.addEventListener("submit", function (event) {
     url += params.join("&");
     location.href = url;
 });
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement) {
+    console.error('Invalid container element');
+    return;
+  }
+
+  if (!Array.isArray(projects)) {
+    console.error('Projects data is not an array');
+    return;
+  }
+
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+  if (!validHeadings.includes(headingLevel)) {
+    headingLevel = 'h2';
+  }
+
+  containerElement.innerHTML = '';
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
