@@ -1,62 +1,74 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "skills-review-pull-requests",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus odio officia libero amet impedit laborum minus odit natus, consequuntur optio itaque nihil delectus magnam, nam aut ab. Omnis, voluptatum nam!"
+        "description": "Learning how to use github"
     },
     {
-        "title": "Et doloribus libero cupiditate?",
+        "title": "recipe-rating-analysis",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Labore ex iusto pariatur aliquam autem repudiandae harum vitae non architecto sequi. Totam quia itaque porro molestias ullam! Adipisci distinctio maiores omnis! Quia quisquam laudantium expedita perferendis veritatis saepe corporis."
+        "description": "Final project for DSC80."
     },
     {
-        "title": "Iusto, eum excepturi. Ab!",
+        "title": "dsc40b-superhw1",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Explicabo quasi laboriosam fuga architecto. Consequatur quod incidunt, sed cum adipisci at optio qui accusantium et sit eaque eos, ipsa est placeat beatae accusamus dolore sequi corporis tenetur? Deserunt, deleniti?"
+        "description": "Final project 1 for DSC40b."
     },
     {
-        "title": "Quidem excepturi omnis nulla.",
+        "title": "dsc40b-superhw2",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Suscipit iure ad assumenda neque reiciendis rem officia id ex tenetur tempore velit optio, ut rerum distinctio eum aliquam sed eveniet nemo a expedita recusandae quam tempora perferendis. Debitis, officia!"
+        "description": "Final project 2 for DSC40b."
     },
     {
-        "title": "Voluptates similique ut maiores.",
+        "title": "portfolio",
+        "year": "2026",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nulla, repellendus recusandae cum quia minima obcaecati eius quidem officiis iure? Quia nostrum impedit cum, ullam libero vitae veritatis dolorum sapiente culpa in non repudiandae, explicabo amet quaerat, maxime excepturi?"
+        "description": "Lab for DSC106."
     },
     {
-        "title": "Repellat nihil consectetur sequi.",
+        "title": "DSC10",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Expedita aperiam delectus ea libero. Eius voluptates sequi perferendis eos, dolorum distinctio officiis saepe, adipisci quo eligendi reiciendis et ab obcaecati nihil quia dolores exercitationem expedita ex rerum mollitia sint."
+        "description": "First time to take a DSC course."
     },
     {
-        "title": "Rem odio reiciendis excepturi?",
+        "title": "Microsoft Learn AI Skills Challenge",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Illo quas qui vitae natus necessitatibus non quo aspernatur modi eum distinctio molestiae numquam hic saepe culpa amet rerum, adipisci voluptas delectus accusantium veniam quos consequatur sit consectetur! Omnis, dolorum."
+        "description": "An AI course from Microsoft that I've taken before"
     },
     {
-        "title": "Optio iusto excepturi inventore.",
+        "title": "Startup plan",
+        "year": "2026",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tempora molestias deserunt assumenda libero rem labore vel ipsam excepturi deleniti. Quidem magni eos, cum provident assumenda sed autem. Sapiente placeat, molestias suscipit sint hic a eos fugit nulla assumenda?"
+        "description": "Planning and working on a startup with my friend."
     },
     {
-        "title": "Consequatur ipsum ratione est.",
+        "title": "Intership",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Magnam quo commodi vero quos quibusdam soluta fugiat asperiores architecto nihil dicta voluptatum praesentium doloribus a excepturi unde nesciunt inventore, iusto, aperiam fuga! Error vitae id animi fuga delectus ut."
+        "description": "Intership experience in a tech company during summer break."
     },
     {
-        "title": "Natus voluptatum odit exercitationem!",
+        "title": "Sailboat",
+        "year": "2016"
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptates doloremque inventore asperiores totam nostrum ipsum quo vero soluta tempore, fugit mollitia quae hic excepturi ipsa eius nihil, esse veritatis cumque expedita similique. Rem quaerat soluta labore voluptas adipisci."
+        "description": "First time to learn sailing."
     },
     {
-        "title": "Consequatur perferendis dolores neque.",
+        "title": "Sneaker reselling",
+        "year": "2019"
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Obcaecati, vero amet? Incidunt quos velit tempora necessitatibus, optio tenetur molestiae, a voluptates obcaecati ut porro corporis, officiis beatae. Doloremque reiciendis iure quasi perspiciatis ipsam pariatur eligendi facere ducimus voluptas."
+        "description": "My first business - sneaker reselling during highschool."
     },
     {
-        "title": "At natus animi a?",
+        "title": "Study tour",
+        "year": "2017"
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Qui in quod nulla laboriosam cum veniam pariatur fugiat quas hic ipsa temporibus odio iure, odit quae! Illo, non cumque perspiciatis dolorum quidem aliquam ipsam consectetur eos quod magnam officiis."
+        "description": "Had a study tour in United Kingdom."
     }
 ]
