@@ -5,42 +5,64 @@ const projects = await fetchJSON('../lib/projects.json');
 
 const projectsContainer = document.querySelector('.projects');
 const projectsTitle = document.querySelector('.projects-title');
+const searchInput = document.querySelector('.searchBar');
 
-projectsTitle.textContent = `${projects.length} Projects`;
+let query = '';
 
-renderProjects(projects, projectsContainer, 'h2');
+function renderPieChart(projectsGiven) {
+  let rolledData = d3.rollups(
+    projectsGiven,
+    (v) => v.length,
+    (d) => d.year,
+  );
 
-let rolledData = d3.rollups(
-  projects,
-  (v) => v.length,
-  (d) => d.year,
-);
+  let data = rolledData.map(([year, count]) => {
+    return { value: count, label: year };
+  });
 
-let data = rolledData.map(([year, count]) => {
-  return { value: count, label: year };
-});
+  let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+  let sliceGenerator = d3.pie().value((d) => d.value);
 
-let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-let sliceGenerator = d3.pie().value((d) => d.value);
+  let arcData = sliceGenerator(data);
+  let arcs = arcData.map((d) => arcGenerator(d));
 
-let arcData = sliceGenerator(data);
-let arcs = arcData.map((d) => arcGenerator(d));
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-let colors = d3.scaleOrdinal(d3.schemeTableau10);
+  d3.select('#projects-pie-plot').selectAll('path').remove();
+  d3.select('.legend').selectAll('li').remove();
 
-arcs.forEach((arc, idx) => {
-  d3.select('#projects-pie-plot')
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', colors(idx));
-});
+  arcs.forEach((arc, idx) => {
+    d3.select('#projects-pie-plot')
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(idx));
+  });
 
-let legend = d3.select('.legend');
+  let legend = d3.select('.legend');
 
-data.forEach((d, idx) => {
-  legend
-    .append('li')
-    .attr('style', `--color:${colors(idx)}`)
-    .attr('class', 'legend-item')
-    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  data.forEach((d, idx) => {
+    legend
+      .append('li')
+      .attr('style', `--color:${colors(idx)}`)
+      .attr('class', 'legend-item')
+      .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  });
+}
+
+function updateProjects() {
+  let filteredProjects = projects.filter((project) =>
+    project.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+  projectsTitle.textContent = `${filteredProjects.length} Projects`;
+
+  renderProjects(filteredProjects, projectsContainer, 'h2');
+  renderPieChart(filteredProjects);
+}
+
+updateProjects();
+
+searchInput.addEventListener('input', (event) => {
+  query = event.target.value;
+  updateProjects();
 });

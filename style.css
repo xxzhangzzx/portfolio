@@ -203,3 +203,11 @@ li {
   background-color: var(--color);
   border-radius: 50%;
 }
+
+.searchBar {
+  width: 100%;
+  margin-block: 1em;
+  padding: 0.75em 1em;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5em;
+}
