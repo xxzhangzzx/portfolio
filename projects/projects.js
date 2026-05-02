@@ -28,17 +28,18 @@ function renderPieChart(projectsGiven) {
 
   let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-  d3.select('#projects-pie-plot').selectAll('path').remove();
-  d3.select('.legend').selectAll('li').remove();
+  let svg = d3.select('#projects-pie-plot');
+  svg.selectAll('path').remove();
+
+  let legend = d3.select('.legend');
+  legend.selectAll('li').remove();
 
   arcs.forEach((arc, idx) => {
-    d3.select('#projects-pie-plot')
+    svg
       .append('path')
       .attr('d', arc)
       .attr('fill', colors(idx));
   });
-
-  let legend = d3.select('.legend');
 
   data.forEach((d, idx) => {
     legend
@@ -50,9 +51,10 @@ function renderPieChart(projectsGiven) {
 }
 
 function updateProjects() {
-  let filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(query.toLowerCase())
-  );
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
 
   projectsTitle.textContent = `${filteredProjects.length} Projects`;
 
