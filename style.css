@@ -166,14 +166,24 @@ li {
 
 #projects-pie-plot {
   max-width: 20em;
-  margin-block: 2em;
   overflow: visible;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+.container .legend {
+  flex: 1;
 }
 
 .legend {
   list-style: none;
   padding: 1em;
-  margin-block: 2em;
+  margin: 0;
   border: 1px solid var(--border-color, #ccc);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
