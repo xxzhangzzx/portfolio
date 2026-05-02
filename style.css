@@ -211,3 +211,29 @@ li {
   border: 1px solid var(--border-color);
   border-radius: 0.5em;
 }
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+#projects-pie-plot path.selected {
+  fill: var(--color);
+}
+
+.legend-item.selected {
+  color: var(--color);
+  font-weight: bold;
+}
+
+.legend-item.selected .swatch {
+  background-color: var(--color);
+}

@@ -8,6 +8,7 @@ const projectsTitle = document.querySelector('.projects-title');
 const searchInput = document.querySelector('.searchBar');
 
 let query = '';
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
   let rolledData = d3.rollups(
@@ -34,11 +35,25 @@ function renderPieChart(projectsGiven) {
   let legend = d3.select('.legend');
   legend.selectAll('li').remove();
 
-  arcs.forEach((arc, idx) => {
+  function updateSelection() {
+    svg
+      .selectAll('path')
+      .classed('selected', (_, idx) => idx === selectedIndex);
+
+    legend
+      .selectAll('li')
+      .classed('selected', (_, idx) => idx === selectedIndex);
+  }
+
+  arcs.forEach((arc, i) => {
     svg
       .append('path')
       .attr('d', arc)
-      .attr('fill', colors(idx));
+      .attr('fill', colors(i))
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+        updateSelection();
+      });
   });
 
   data.forEach((d, idx) => {
@@ -48,6 +63,8 @@ function renderPieChart(projectsGiven) {
       .attr('class', 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
+
+  updateSelection();
 }
 
 function updateProjects() {
