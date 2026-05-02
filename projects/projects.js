@@ -10,14 +10,18 @@ projectsTitle.textContent = `${projects.length} Projects`;
 
 renderProjects(projects, projectsContainer, 'h2');
 
+let data = [1, 2];
+let colors = ['gold', 'purple'];
+
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+let sliceGenerator = d3.pie();
 
-let arc = arcGenerator({
-  startAngle: 0,
-  endAngle: 2 * Math.PI,
+let arcData = sliceGenerator(data);
+let arcs = arcData.map((d) => arcGenerator(d));
+
+arcs.forEach((arc, idx) => {
+  d3.select('#projects-pie-plot')
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', colors[idx]);
 });
-
-d3.select('#projects-pie-plot')
-  .append('path')
-  .attr('d', arc)
-  .attr('fill', 'red');
