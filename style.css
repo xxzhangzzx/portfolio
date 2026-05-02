@@ -79,6 +79,14 @@ input, textarea {
   margin: 0;
 }
 
+.project-year {
+    font-family: Baskerville, serif;
+    font-variant-numeric: oldstyle-nums;
+    color: gray;
+    margin-top: 0.25em;
+    margin-bottom: 0;
+}
+
 h1 {
   font-size: 400%;
 }
