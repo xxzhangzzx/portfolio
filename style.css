@@ -290,3 +290,67 @@ li {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+#chart {
+  max-width: 100%;
+  margin-block: 2em;
+}
+
+.dots circle {
+  fill: var(--color-accent);
+  fill-opacity: 0.75;
+}
+
+.gridlines line {
+  stroke: currentColor;
+  stroke-opacity: 0.15;
+}
+
+.gridlines path {
+  display: none;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+  background: color-mix(in oklch, canvas 85%, transparent);
+  box-shadow: 0 0.5em 1.5em color-mix(in oklch, canvastext 20%, transparent);
+  border-radius: 0.75em;
+  padding: 1em;
+  backdrop-filter: blur(0.5em);
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
