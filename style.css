@@ -372,3 +372,10 @@ circle.selected {
     stroke-dasharray: 5 3;
     animation: marching-ants 2s linear infinite;
 }
+
+.projects article img {
+  width: 100%;
+  height: 12em;
+  object-fit: cover;
+  display: block;
+}
