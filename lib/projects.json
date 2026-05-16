@@ -3,7 +3,7 @@
         "title": "Bikewatching",
         "year": "2026",
         "image": "../images/bikewatching.png",
-        "description": "An interactive map visualization of Boston and Cambridge bike lanes, Bluebikes stations, and station traffic patterns by time of day.",
+        "description": "An interactive map visualization of Boston bike lanes.",
         "url": "https://xxzhangzzx.github.io/bikewatching/"
     },
     {
