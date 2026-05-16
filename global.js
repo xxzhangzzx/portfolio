@@ -110,29 +110,17 @@ form?.addEventListener("submit", function (event) {
 });
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-  if (!containerElement) {
-    console.error('Invalid container element');
-    return;
-  }
-
-  if (!Array.isArray(projects)) {
-    console.error('Projects data is not an array');
-    return;
-  }
-
-  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-
-  if (!validHeadings.includes(headingLevel)) {
-    headingLevel = 'h2';
-  }
-
   containerElement.innerHTML = '';
 
   for (const project of projects) {
     const article = document.createElement('article');
 
+    const title = project.url
+      ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>`
+      : project.title;
+
     article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
+      <${headingLevel}>${title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
       <div>
         <p>${project.description}</p>
@@ -140,7 +128,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       </div>
     `;
 
-    containerElement.appendChild(article);
+    containerElement.append(article);
   }
 }
 

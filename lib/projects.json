@@ -1,5 +1,12 @@
 [
     {
+        "title": "Bikewatching",
+        "year": "2026",
+        "image": "../images/bikewatching.png",
+        "description": "An interactive map visualization of Boston and Cambridge bike lanes, Bluebikes stations, and station traffic patterns by time of day.",
+        "url": "https://xxzhangzzx.github.io/bikewatching/"
+    },
+    {
         "title": "skills-review-pull-requests",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -16,12 +23,6 @@
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Final project 1 for DSC40b."
-    },
-    {
-        "title": "dsc40b-superhw2",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Final project 2 for DSC40b."
     },
     {
         "title": "portfolio",
