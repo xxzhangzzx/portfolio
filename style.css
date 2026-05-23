@@ -382,9 +382,14 @@ circle.selected {
 
 .commit-filter {
     display: flex;
+    margin-block: 1em;
+}
+
+.commit-filter label {
+    display: flex;
+    flex: 1;
     gap: 1em;
     align-items: baseline;
-    margin-block: 1em;
 }
 
 #commit-progress {
@@ -393,4 +398,10 @@ circle.selected {
 
 #commit-time {
     margin-left: auto;
+}
+
+circle {
+    @starting-style {
+        r: 0;
+    }
 }

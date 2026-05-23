@@ -380,7 +380,6 @@ let data = await loadData();
 let commits = processCommits(data);
 
 let commitProgress = 100;
-let filteredCommits = commits;
 
 let timeScale = d3
     .scaleTime()
@@ -392,8 +391,11 @@ let timeScale = d3
 
 let commitMaxTime = timeScale.invert(commitProgress);
 
+let filteredCommits = commits;
+
 function onTimeSliderChange() {
     commitProgress = Number(document.getElementById('commit-progress').value);
+
     commitMaxTime = timeScale.invert(commitProgress);
 
     document.getElementById('commit-time').textContent =
@@ -404,8 +406,10 @@ function onTimeSliderChange() {
 
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
-    renderCommitInfo(data, filteredCommits);
-    updateScatterPlot(data, filteredCommits);
+    const filteredData = filteredCommits.flatMap((d) => d.lines);
+
+    renderCommitInfo(filteredData, filteredCommits);
+    updateScatterPlot(filteredData, filteredCommits);
 }
 
 renderCommitInfo(data, commits);
