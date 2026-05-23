@@ -376,6 +376,42 @@ function updateScatterPlot(data, commits) {
         });
 }
 
+function updateFileDisplay(filteredCommits) {
+    let lines = filteredCommits.flatMap((d) => d.lines);
+
+    let files = d3
+        .groups(lines, (d) => d.file)
+        .map(([name, lines]) => {
+            return { name, lines };
+        })
+        .sort((a, b) => b.lines.length - a.lines.length);
+
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
+    let filesContainer = d3
+        .select('#files')
+        .selectAll('div')
+        .data(files, (d) => d.name)
+        .join((enter) =>
+            enter.append('div').call((div) => {
+                div.append('dt');
+                div.append('dd');
+            }),
+        );
+
+    filesContainer
+        .select('dt')
+        .html((d) => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+
+    filesContainer
+        .select('dd')
+        .selectAll('div')
+        .data((d) => d.lines)
+        .join('div')
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
 let data = await loadData();
 let commits = processCommits(data);
 
@@ -395,7 +431,6 @@ let filteredCommits = commits;
 
 function onTimeSliderChange() {
     commitProgress = Number(document.getElementById('commit-progress').value);
-
     commitMaxTime = timeScale.invert(commitProgress);
 
     document.getElementById('commit-time').textContent =
@@ -405,15 +440,16 @@ function onTimeSliderChange() {
         });
 
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
-
     const filteredData = filteredCommits.flatMap((d) => d.lines);
 
     renderCommitInfo(filteredData, filteredCommits);
     updateScatterPlot(filteredData, filteredCommits);
+    updateFileDisplay(filteredCommits);
 }
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
+updateFileDisplay(filteredCommits);
 
 document
     .getElementById('commit-progress')
