@@ -13,6 +13,13 @@
     <p>This page shows statistics and analysis about the codebase of this website.</p>
 
     <h2>Summary Stats</h2>
+
+    <div class="commit-filter">
+        <label for="commit-progress">Show commits until:</label>
+         <input id="commit-progress" type="range" min="0" max="100" value="100" />
+         <time id="commit-time"></time>
+    </div>
+
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
@@ -31,7 +38,7 @@
         <dd id="commit-date"></dd>
 
         <dt>Time</dt>
-        <dd id="commit-time"></dd>
+        <dd id="commit-tooltip-time"></dd>
 
         <dt>Author</dt>
         <dd id="commit-author"></dd>

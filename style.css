@@ -379,3 +379,18 @@ circle.selected {
   object-fit: cover;
   display: block;
 }
+
+.commit-filter {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+    margin-block: 1em;
+}
+
+#commit-progress {
+    flex: 1;
+}
+
+#commit-time {
+    margin-left: auto;
+}
